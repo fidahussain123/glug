@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submitted Projects</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Submitted Projects</h1>
+        <div id="project-list">
+            <% if (projects.length === 0) { %>
+                <p>No projects have been submitted yet.</p>
+            <% } else { %>
+                <% projects.forEach(function(project) { %>
+                    <div class="project-card">
+                        <h2>Title: <%= project.title %></h2>
+                        <h3>Project Name: <%= project.project_name %></h3>
+                        <p>Description: <%= project.description %></p>
+                        <p>Students: <%= project.student_names %></p>
+                    </div>
+                <% }) %>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Submission</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Submit Your Project Report</h1>
+        <form action="/submit" method="post">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" placeholder="Enter project title" required>
+
+            <label for="projectName">Project Name</label>
+            <input type="text" id="projectName" name="projectName" placeholder="Enter project name" required>
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="5" placeholder="Enter a brief description" required></textarea>
+
+            <label for="studentNames">Name of Students</label>
+            <input type="text" id="studentNames" name="studentNames" placeholder="Enter student names" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
