@@ -3,26 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submitted Projects</title>
+    <title>Projects List</title>
     <link rel="stylesheet" href="/styles.css">
+    <style>
+        /* General styles */
+body {
+    font-family: 'Roboto', sans-serif; /* Modern and clean font */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the content horizontally */
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+    text-align: center; /* Centers text inside the container */
+}
+
+/* Enhanced Heading */
+h1 {
+    font-family: 'Montserrat', sans-serif; /* Elegant font for headings */
+    color: #333;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Project cards grid */
+ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Increased min width for larger cards */
+    gap: 30px; /* Increased gap for better spacing */
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+}
+
+/* Card styles */
+li {
+    background: #fff;
+    border: 1px solid #ddd; /* Subtle border for visual structure */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px; /* Increased padding for larger cards */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Card content */
+h2 {
+    font-size: 1.8em; /* Increased font size for better readability on larger cards */
+    color: #007BFF;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.2em; /* Increased font size for better proportions */
+    margin: 10px 0;
+}
+
+strong {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Submit button */
+a {
+    display: inline-block;
+    margin: 30px auto; /* Adds spacing and centers button */
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1.1em; /* Slightly larger font for the button */
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+
+a:hover {
+    background-color: #0056b3;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    li {
+        padding: 20px;
+    }
+
+    a {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+
+    li {
+        padding: 15px;
+    }
+
+    a {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+}
+
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Submitted Projects</h1>
-        <div id="project-list">
-            <% if (projects.length === 0) { %>
-                <p>No projects have been submitted yet.</p>
-            <% } else { %>
-                <% projects.forEach(function(project) { %>
-                    <div class="project-card">
-                        <h2>Title: <%= project.title %></h2>
-                        <h3>Project Name: <%= project.project_name %></h3>
-                        <p>Description: <%= project.description %></p>
-                        <p>Students: <%= project.student_names %></p>
-                    </div>
-                <% }) %>
-            <% } %>
-        </div>
+        <h1>Projects List</h1>
+        <ul>
+            <% projects.forEach(project => { %>
+                <li>
+                    <h2><%= project.title %></h2>
+                    <p><strong>Project Name:</strong> <%= project.project_name %></p>
+                    <p><strong>Description:</strong> <%= project.description %></p>
+                    <p><strong>Students:</strong> <%= project.student_names %></p>
+                </li>
+            <% }) %>
+        </ul>
+        <a href="/">Submit a New Project</a>
     </div>
 </body>
 </html>
