@@ -1,61 +1,88 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-  }
-  
-  .container {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #333;
-  }
-  
-  form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
-  label {
-    display: block;
-    margin: 10px 0 5px;
-  }
-  
-  input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  .project-card {
-    padding: 15px;
-    background-color: #fff;
-    margin: 10px 0;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  position: relative; /* Position relative for the pseudo-element */
+  overflow: hidden; /* Prevent overflow from pseudo-element */
+}
+
+body::before {
+  content: ""; /* Required for pseudo-element */
+  position: absolute; /* Position it absolutely */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/1.png'); /* Set the background image */
+  background-size: cover; /* Cover the entire viewport */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the background from repeating */
+  opacity: 0.6; /* Adjust the opacity of the background image */
+  z-index: -1; /* Place it behind other content */
+}
+
+
+
+.logo {
+  max-width: 250px; /* Increased maximum width for the logo */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.form-container {
+  background-color: rgba(255, 255, 255, 0.9); /* Adjusted transparency for a more appealing look */
+  padding: 30px; /* Increased padding for a more spacious feel */
+  border-radius: 10px; /* Slightly larger border radius for a softer look */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4); /* Enhanced shadow effect for depth */
+  max-width: 500px;
+  margin: 40px auto; /* Centered with margin on top and bottom */
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px; /* Added margin for spacing */
+}
+
+form {
+  display: flex;
+  flex-direction: column; /* Ensures all elements stack vertically */
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold; /* Added bold font for labels */
+}
+
+input, textarea {
+  width: calc(100% - 20px); /* Adjusted width to account for padding */
+  padding: 12px; /* Increased padding for better touch targets */
+  margin-bottom: 15px; /* Increased margin for better spacing */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px; /* Increased font size for better readability */
+  box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+button {
+  padding: 12px 20px; /* Increased padding for better touch targets */
+  background-color: #1fb5b5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px; /* Increased font size for better readability */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+button:hover {
+  background-color: #17a3a3;
+}
+
+.project-card {
+  padding: 15px;
+  background-color: #fff;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
