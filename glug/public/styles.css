@@ -1,82 +1,97 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  position: relative; /* Position relative for the pseudo-element */
-  overflow: hidden; /* Prevent overflow from pseudo-element */
+  position: relative;
+  overflow: auto; /* Allow scrolling */
+  background-color: #f4f4f9;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 body::before {
-  content: ""; /* Required for pseudo-element */
-  position: absolute; /* Position it absolutely */
+  content: "";
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('/1.png'); /* Set the background image */
-  background-size: cover; /* Cover the entire viewport */
-  background-position: center; /* Center the background image */
-  background-repeat: no-repeat; /* Prevent the background from repeating */
-  opacity: 0.6; /* Adjust the opacity of the background image */
-  z-index: -1; /* Place it behind other content */
+  width: 100%;
+  height: 100%;
+  background-image: url('/1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  z-index: -1;
 }
 
-
-
 .logo {
-  max-width: 250px; /* Increased maximum width for the logo */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 250px;
+  height: auto;
 }
 
 .form-container {
-  background-color: rgba(255, 255, 255, 0.9); /* Adjusted transparency for a more appealing look */
-  padding: 30px; /* Increased padding for a more spacious feel */
-  border-radius: 10px; /* Slightly larger border radius for a softer look */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4); /* Enhanced shadow effect for depth */
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
   max-width: 500px;
-  margin: 40px auto; /* Centered with margin on top and bottom */
+  margin: 40px auto;
 }
 
 h1 {
   text-align: center;
   color: #333;
-  margin-bottom: 20px; /* Added margin for spacing */
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
 form {
   display: flex;
-  flex-direction: column; /* Ensures all elements stack vertically */
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: 20px auto;
 }
 
 label {
   display: block;
   margin: 10px 0 5px;
-  font-weight: bold; /* Added bold font for labels */
+  font-weight: bold;
+  font-size: 1.1em;
 }
 
 input, textarea {
-  width: calc(100% - 20px); /* Adjusted width to account for padding */
-  padding: 12px; /* Increased padding for better touch targets */
-  margin-bottom: 15px; /* Increased margin for better spacing */
+  width: calc(100% - 20px);
+  padding: 12px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 16px; /* Increased font size for better readability */
-  box-sizing: border-box; /* Ensures padding is included in width */
+  font-size: 16px;
+  box-sizing: border-box;
 }
 
 button {
-  padding: 12px 20px; /* Increased padding for better touch targets */
-  background-color: #1fb5b5;
+  padding: 12px 20px;
+  background-color: #007BFF;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px; /* Increased font size for better readability */
-  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  font-size: 16px;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #17a3a3;
+  background-color: #0056b3;
 }
 
 .project-card {
@@ -85,4 +100,92 @@ button:hover {
   margin: 10px 0;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card h2 {
+  font-size: 1.8em;
+  color: #007BFF;
+  margin-bottom: 15px;
+}
+
+.project-card p {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.project-card a {
+  display: inline-block;
+  margin: 15px auto 0;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 1.1em;
+  font-family: 'Roboto', sans-serif;
+  transition: background-color 0.2s;
+  text-align: center;
+}
+
+.project-card a:hover {
+  background-color: #0056b3;
+}
+
+.container ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Default to 3 columns */
+  gap: 20px; /* Spacing between cards */
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .container ul {
+    grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .container ul {
+    grid-template-columns: 1fr; /* Adjust to 1 column for phones */
+  }
+}
+
+.submit-new-project-button {
+  display: inline-block;
+  margin: 30px auto;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 1.1em;
+  font-family: 'Roboto', sans-serif;
+  transition: background-color 0.2s;
+  text-align: center;
+}
+
+.submit-new-project-button:hover {
+  background-color: #0056b3;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input, form textarea {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+form button {
+  width: 100%;
 }
