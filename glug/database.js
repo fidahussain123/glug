@@ -1,15 +1,14 @@
-const { Client } = require('pg');
 
-const client = new Client({
-  user: 'postgres',        // Replace with your PostgreSQL username
-  host: 'localhost',
-  database: 'projects_db',      // Replace with your database name
-  password: '1234',    // Replace with your PostgreSQL password
-  port: 5433,                   // Default PostgreSQL port
+
+const { Pool } = require('pg');
+
+// Configure the PostgreSQL client
+const pool = new Pool({
+  user: 'postgres',       // Replace with your PostgreSQL username
+  host: 'localhost',           // Database host (default is localhost)
+  database: 'projects_db',      // Your database name
+  password: '1234',   // Your PostgreSQL password
+  port: 5432                   // Default PostgreSQL port
 });
 
-client.connect()
-  .then(() => console.log('Connected to PostgreSQL database'))
-  .catch((err) => console.error('Error connecting to the database:', err));
-
-module.exports = client;
+module.exports = pool;
