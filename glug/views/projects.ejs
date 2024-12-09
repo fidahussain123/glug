@@ -150,16 +150,17 @@ a:hover {
     <div class="container">
         <h1>Projects List</h1>
         <ul>
-            <% projects.forEach(project => { %>
-                <li>
-                    <h2><%= project.title %></h2>
-                    <p><strong>Project Name:</strong> <%= project.project_name %></p>
-                    <p><strong>Description:</strong> <%= project.description %></p>
-                    <p><strong>Students:</strong> <%= project.student_names %></p>
-                </li>
-            <% }) %>
-        </ul>
-        <a href="/">Submit a New Project</a>
+<% projects.forEach(project => { %>
+    <li>
+        <h2><%= project.title %></h2>
+        <p><strong>Project Name:</strong> <%= project.project_name %></p>
+        <p><strong>Description:</strong> <%= project.description %></p>
+        <p><strong>Students:</strong> <%= project.student_names %></p>
+        <a href="/update-project/<%= project.id %>" class="button">Update The Project</a>
+    </li>
+<% }) %>
+</ul>
+<a href="/">Submit a New Project</a>
     </div>
 </body>
 </html>
